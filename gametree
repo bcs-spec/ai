@@ -1,0 +1,17 @@
+class Node:
+def __init__(self, name):
+self.name = name
+self.children = []
+root = Node("Start")
+a = Node("Player 1")
+b = Node("Player 2")
+c = Node("Player 1")
+d = Node("Player 2")
+root.children = [a, b]
+a.children = [c, d]
+def show(node, level=0):
+print(" " * level + node.name)
+for child in node.children:
+show(child, level + 1)
+print("Game Tree:")
+show(root)
