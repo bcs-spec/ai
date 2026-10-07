@@ -1,0 +1,13 @@
+import heapq
+g={'A':['B','C'],'B':['A','D','E'],'C':['A','F'],
+'D':['B','F'],'E':['B','F'],'F':['C','D','E']}
+h={'A':6,'B':5,'C':3,'D':2,'E':1,'F':0}
+q=[(h['A'],'A',['A'])]; seen=set()
+while q:
+_,n,path=heapq.heappop(q)
+if n=='F':
+print("Path:",' -> '.join(path)); break
+if n in seen: continue
+seen.add(n)
+for x in g[n]:
+heapq.heappush(q,(h[x],x,path+[x]))
