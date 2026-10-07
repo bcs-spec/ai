@@ -1,0 +1,16 @@
+ colors = ["Red", "Green", "Blue"]
+graph = {
+"A": ["B", "C"],
+"B": ["A", "D"],
+"C": ["A", "D"],
+"D": ["B", "C"]
+}
+result = {}
+for city in graph:
+for color in colors:
+if all(result.get(n) != color for n in graph[city]):
+result[city] = color
+break
+print("Map Coloring Solution:")
+for city in result:
+print(city, "->", result[city])
