@@ -1,0 +1,18 @@
+tree = [[3,5],[2,9],[0,7]]
+def mm(t, mx=True):
+if isinstance(t,int): return t
+v=[mm(x,not mx) for x in t]
+return max(v) if mx else min(v)
+def ab(t,a=-99,b=99,mx=True):
+if isinstance(t,int): return t
+v=(-99 if mx else 99)
+for x in t:
+v=max(v,ab(x,a,b,0)) if mx else min(v,ab(x,a,b,1))
+if mx: a=max(a,v)
+else: b=min(b,v)
+if a>=b: break
+return v
+print("Minimax:",mm(tree))
+print("Alpha-Beta:",ab(tree))
+In [ ]: #slip 7
+In [ ]: Q1.Write a program to demonstrate the Hill Climbing Algorithm for find
