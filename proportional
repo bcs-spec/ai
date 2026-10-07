@@ -1,0 +1,15 @@
+P = True
+Q = False
+def AND(p, q):
+return p and q
+def OR(p, q):
+return p or q
+def IMPLIES(p, q):
+return (not p) or q
+print("P =", P)
+print("Q =", Q)
+print("\nLogical Expressions:")
+print("P AND Q =", AND(P, Q))
+print("P OR Q =", OR(P, Q))
+print("P IMPLIES Q =", IMPLIES(P, Q))
+print("NOT P =", not P)
