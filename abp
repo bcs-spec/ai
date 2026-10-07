@@ -1,0 +1,16 @@
+ def ab(t, a=-999, b=999, mx=True):
+if isinstance(t, int): return t
+if mx:
+v = -999
+for x in t:
+v = max(v, ab(x,a,b,False)); a = max(a,v)
+if a >= b: break
+return v
+else:
+v = 999
+for x in t:
+v = min(v, ab(x,a,b,True)); b = min(b,v)
+if a >= b: break
+return v
+tree = [[3,5],[2,9],[0,7]]
+print("Optimal value:", ab(tree))
