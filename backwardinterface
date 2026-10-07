@@ -1,0 +1,11 @@
+facts = {"A", "B"}
+rules = {"D": {"C"}, "C": {"A", "B"}}
+def backward(goal):
+if goal in facts:
+return True
+if goal in rules:
+return all(backward(x) for x in rules[goal])
+return False
+goal = "D"
+print("Goal:", goal)
+print("Result:", backward(goal))
