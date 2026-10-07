@@ -1,0 +1,14 @@
+C = ['R','G','B']
+G = {'A':'BC','B':'ACD','C':'ABE','D':'BE','E':'CD'}
+x = {}
+def solve():
+if len(x) == 5: return True
+n = next(i for i in G if i not in x)
+for c in C:
+if all(x.get(i) != c for i in G[n]):
+x[n] = c
+if solve(): return True
+del x[n]
+return False
+solve()
+print(x)
