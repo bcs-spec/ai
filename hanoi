@@ -1,0 +1,12 @@
+def tower_of_hanoi(n, source, auxiliary, destination):
+if n == 1:
+print("Move disk 1:", source, "->", destination)
+return
+tower_of_hanoi(n - 1, source, destination, auxiliary)
+print("Move disk", n, ":", source, "->", destination)
+tower_of_hanoi(n - 1, auxiliary, source, destination)
+n = 3
+print("Initial State: All disks are on A")
+print("Goal State: All disks are on C")
+print("Moves:")
+tower_of_hanoi(n, 'A', 'B', 'C')
