@@ -1,0 +1,5 @@
+ students = ["A", "B", "C"]
+def Student(x):
+return x in students
+print("All are students:", all(Student(x) for x in students))
+print("At least one is student:", any(Student(x) for x in students))
