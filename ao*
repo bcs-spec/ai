@@ -1,0 +1,16 @@
+: graph = {
+'A': [('OR', [('B', 2), ('C', 3)])],
+'B': [('AND', [('D', 1), ('E', 4)])],
+'C': [('OR', [('F', 2), ('G', 5)])],
+'D': [('OR', [('H', 2), ('I', 3)])],
+'E': [('OR', [('J', 1)])]
+}
+def ao_star(node):
+if node not in graph:
+return 0
+typ, children = graph[node][0]
+if typ == 'OR':
+return min(c + ao_star(n) for n, c in children)
+else:
+return sum(c + ao_star(n) for n, c in children)
+print("Minimum Cost:", ao_star('A')
