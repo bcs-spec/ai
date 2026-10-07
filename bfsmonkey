@@ -1,0 +1,16 @@
+from collections import deque
+def bfs():
+q = deque([("door", "window", [])])
+while q:
+monkey, box, path = q.popleft()
+if monkey == "center" and box == "center":
+print("Solution found:")
+for x in path + ["Monkey climbs on the box", "Monkey gets the banana"
+print(x)
+return
+if monkey != "center":
+q.append(("center", box, path + ["Monkey moves to center"]))
+elif box != "center":
+q.append(("center", "center",
+path + ["Monkey pushes box to center"]))
+bfs()
