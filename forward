@@ -1,0 +1,8 @@
+facts = {"A", "B"}
+rules = [({"A", "B"}, "C"), ({"C"}, "D")]
+while True:
+new = {c for p, c in rules if p <= facts} - facts
+if not new:
+break
+facts.update(new)
+print("Facts:", facts)
