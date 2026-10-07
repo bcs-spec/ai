@@ -1,0 +1,10 @@
+from collections import deque
+graph = {1:[2,3], 2:[4,5], 3:[6,7],
+4:[8,9], 5:[10,11], 6:[12,13], 7:[14,15]}
+q = deque([1])
+result = []
+while q:
+n = q.popleft()
+result.append(n)
+q.extend(graph.get(n, []))
+print("BFS Traversal:", result)
